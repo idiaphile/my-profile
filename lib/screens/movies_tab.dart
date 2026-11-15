@@ -199,10 +199,10 @@ class _MoviesTabState extends State<MoviesTab> {
                                       width: 50,
                                       height: 70,
                                       fit: BoxFit.cover,
-                                      errorBuilder:
-                                          (context, error, stackTrace) {
-                                            return placeholder;
-                                          },
+                                      webHtmlElementStrategy:
+                                          WebHtmlElementStrategy.fallback,
+                                      errorBuilder: (_, _, _) =>
+                                          const Icon(Icons.broken_image),
                                     )
                                   : placeholder,
                             ),

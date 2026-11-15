@@ -329,15 +329,10 @@ class _PickDetailScreenState extends State<PickDetailScreen> {
                             ? Image.network(
                                 imageUrl,
                                 height: 280,
-                                errorBuilder: (_, __, ___) => Container(
-                                  height: 280,
-                                  width: 190,
-                                  color: colors.surfaceContainerHighest,
-                                  child: const Icon(
-                                    Icons.image_not_supported,
-                                    size: 80,
-                                  ),
-                                ),
+                                webHtmlElementStrategy:
+                                    WebHtmlElementStrategy.fallback,
+                                errorBuilder: (_, _, _) =>
+                                    const Icon(Icons.broken_image),
                               )
                             : Container(
                                 height: 280,
