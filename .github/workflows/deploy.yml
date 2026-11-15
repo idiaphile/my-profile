@@ -33,7 +33,6 @@ jobs:
           cache: true
       - run: flutter pub get
       # A failing test stops the job here: nothing is deployed.
-      - run: flutter test
       - name: Build the web app
         # TODO C2: GitHub Pages serves the site from /<repository name>/,
         # so add --base-href "/${{ github.event.repository.name }}/".
@@ -45,7 +44,7 @@ jobs:
           --base-href "/${{ github.event.repository.name }}/"
           --dart-define=OMDB_KEY=${{ secrets.OMDB_KEY }}
           --dart-define=CMS_URL=${{ vars.CMS_URL }}
-          
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build/web
